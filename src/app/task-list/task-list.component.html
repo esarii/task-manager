@@ -1,1 +1,43 @@
-<p>task-list works!</p>
+<div class="title">
+    <h2>My Task List 📝</h2>
+</div>
+<div style="display: flex; flex-direction: column;">
+    <mat-form-field class="example-form-field">
+        <mat-label>Yeni Görev Ekle</mat-label>
+        <input matInput type="text" [(ngModel)]="newTaskTitle">
+        @if (newTaskTitle) {
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="newTaskTitle=''">
+            <mat-icon>close</mat-icon>
+        </button>
+        }
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" (click)="addTask()">Ekle</button>
+
+</div>
+
+
+<!-- #before -->
+<!-- <ul>
+    <li *ngFor="let task of tasks">
+      {{ task.title }}
+      <button (click)="removeTask(task.id)">Sil</button>
+    </li>
+  </ul> -->
+
+<!-- #after -->
+
+<div>
+    <ul class="tasks">
+        @for (task of tasks; track task.id) {
+        <div style="display: flex; justify-content: end; align-items: center;">
+            <li>
+                <span class="badge">{{task.id}}</span> {{task.title}}
+            </li>
+            <button mat-raised-button color="primary" (click)="removeTask(task)">Sil</button>
+        </div>
+        } @empty {
+        <span class="warning">Empty list of tasks 💭</span>
+        }
+    </ul>
+</div>

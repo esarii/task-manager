@@ -211,7 +211,7 @@
 
         <div class="card-footer">
           <div class="stats" (click)="openTaskList()">
-            <a>Listeyi Görüntülemek İçin Tıklayınız.</a>
+            <a style="text-decoration: underline;">Listeyi Görüntülemek İçin Tıklayınız.</a>
           </div>
         </div>
       </div>
@@ -222,14 +222,15 @@
 
   </div>
 
-
-  <div class="right-side">
+  <div style="width: 700px;">
     @if(isTaskListVisible){
     <div>
       <app-task-list></app-task-list>
     </div>
     } @else {
-    No state is selected. 🙈
+      <div style="margin-top: 20em; font-size: large;">
+        No state is selected. 🙈
+      </div>
     }
   </div>
 </main>
