@@ -31,10 +31,13 @@
     <ul class="tasks">
         @for (task of tasks; track task.id) {
         <div style="display: flex; justify-content: end; align-items: center;">
+            <mat-checkbox class="example-margin" (click)="onButtonClick()"></mat-checkbox>
             <li>
                 <span class="badge">{{task.id}}</span> {{task.title}}
             </li>
-            <button mat-raised-button color="primary" (click)="removeTask(task)">Sil</button>
+            <button mat-mini-fab matTooltip="primary" color="primary" aria-label="Example mini fab with a heart icon" (click)="removeTask(task)">
+                <mat-icon>delete</mat-icon>
+            </button>
         </div>
         } @empty {
         <span class="warning">Empty list of tasks 💭</span>
