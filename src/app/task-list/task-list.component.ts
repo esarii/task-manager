@@ -20,6 +20,7 @@ export class TaskListComponent implements OnInit{
   tasks: Task[] = [];
   newTaskTitle = '';
   content = 'This is a snackbar';
+  checkboxValue: boolean = false;
 
   constructor(private taskService: TaskService,private snackBar: MatSnackBar) {
     this.tasks = this.taskService.getTasks();
@@ -36,8 +37,10 @@ export class TaskListComponent implements OnInit{
     });
   }
 
-  onButtonClick() {
-    this.showSnackbar('Task Completed.', 'custom-panel-class');
+  onCheckbox(event: any) {
+    if (event.checked) {
+      this.showSnackbar('Task Completed.', 'custom-panel-class');
+    }
   }
 
   addTask() {

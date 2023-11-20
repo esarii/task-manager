@@ -31,7 +31,7 @@
     <ul class="tasks">
         @for (task of tasks; track task.id) {
         <div style="display: flex; justify-content: end; align-items: center;">
-            <mat-checkbox class="example-margin" (click)="onButtonClick()"></mat-checkbox>
+            <mat-checkbox class="example-margin" [checked]="checkboxValue"  (change)="onCheckbox($event)"></mat-checkbox>
             <li>
                 <span class="badge">{{task.id}}</span> {{task.title}}
             </li>
